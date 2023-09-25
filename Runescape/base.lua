@@ -3,6 +3,8 @@ local distanceBetweenEachRow = 2200
 local distanceBetweenEachColumn = 1500
 local firstRowPos = 45674
 local firstColumnPos = 58261
+local centerScreenX = 31111
+local centerScreenY = 29700
 
 --main function, replace events here to run different commands
 function OnEvent(event, arg)
@@ -35,6 +37,17 @@ function clickInventorySlot(column,row,mouseButton)
 	ReleaseMouseButton(mouseButton)
 	--OutputLogMessage("Clicked Inventory Slot %d,%d\n",row,column)
 	--OutputLogMessage("Position Clicked, X - %d, Y - %d\nMouseButton - %d\n",rowPos, columnPos,mouseButton)
+end
+
+--[[
+this method points to the center of the screen waits for 'sleep' amount
+and then clicks with 'mouseButton' Mouse Button
+--]]
+function clickCenterScreen(mouseButton, sleep)
+	MoveMouseTo(centerScreenX, centerScreenY)
+	Sleep(sleep)
+	PressMouseButton(mouseButton)
+	ReleaseMouseButton(mouseButton)
 end
 
 --[[
