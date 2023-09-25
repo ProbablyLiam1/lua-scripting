@@ -9,34 +9,33 @@ The below methods should be copy pasted into base.lua, and then makeSoftClay(27)
 make soft clay at the varrok fountain
 requires a bucket/jug in your first inv slot, fill other slots with clay
 only works for full inv right now, howMuchClay can be changed in future
+line up your character so that their ass is directly in front of the fountain
 ]]--
 function makeSoftClay(howMuchClay)
 	--begin clay time
 	OutputLogMessage("ITS CLAY TIME")
-	howMuchClay = 5
 	for i = howMuchClay,1,-1
 	do
 		--left click the bucket
 		OutputLogMessage("Clicking Bucket\n")
 		clickInventorySlot(1,1,1)
-		Sleep(1500)
+		Sleep(100)
 		--left click the water source to the left of your inv
 		OutputLogMessage("Clicking Water\n")
-		clickWaterSource()
-		Sleep(2000)
+		clickCenterScreen(1,500)
+		Sleep(750)
 		--left click the bucket
 		OutputLogMessage("Clicking Bucket\n")
 		clickInventorySlot(1,1,1)
-		Sleep(1000)
+		Sleep(100)
 		--left click the hard clay in your last slot
 		OutputLogMessage("Clicking Clay\n")
 		clickInventorySlot(4,7,1)
-		Sleep(1000)
+		Sleep(2000)
 		OutputLogMessage("Clay Left %d\n", i-1)
 	end
 	OutputLogMessage("CLAY TIME IS OVER")
 end
-
 --[[
 clicks just left of your inventory where a water source should be positioned
 ]]--
